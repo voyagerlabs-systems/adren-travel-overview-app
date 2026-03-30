@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ankitFounderImg from "../assets/Ankit_Prasad_Founder.jpeg";
 
 export default function Landing() {
   return (
@@ -215,7 +216,7 @@ export default function Landing() {
             <div className="w-48 h-48 rounded-2xl overflow-hidden shrink-0 saas-shadow rotate-3">
               <img
                 className="w-full h-full object-cover"
-                src="src/assets/Ankit_Prasad_Founder.jpeg"
+                src={ankitFounderImg}
                 alt="Ankit Prasad, Founder & CEO"
               />
             </div>
