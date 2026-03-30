@@ -1,29 +1,33 @@
 import { Link } from "react-router-dom";
+import divyeshImg from "../assets/divyesh_dighe.png";
+import adityaImg from "../assets/Aditya_Swarankar_CBO.jpg";
+import karnaviImg from "../assets/karnavi_joshi.jpg";
+import ankushImg from "../assets/Ankush_Prasad.png";
 
 const team = [
   {
     name: "Divyesh Dighe",
     role: "Product Delivery Manager",
     desc: "Leads end-to-end delivery of travel solutions, ensuring seamless integration across suppliers, booking systems, and distribution channels with 15+ years in global B2B travel",
-    img: "src/assets/divyesh_dighe.png",
+    img: divyeshImg,
   },
   {
     name: "Aditya Swarankar",
     role: "Chief Business Officer",
     desc: "Drives strategic partnerships and revenue growth by expanding travel supplier networks, optimizing distribution channels, and scaling global travel operations.",
-    img: "src/assets/Aditya_Swarankar_CBO.jpg"
+    img: adityaImg,
   },
   {
     name: "Karnavi Joshi",
     role: "UI/UX Lead",
     desc: "Designs intuitive travel booking experiences focused on seamless user journeys, improving conversion rates across flight, hotel, and package booking platforms.",
-    img: "src/assets/karnavi_joshi.jpg",
+    img: karnaviImg,
   },
   {
     name: "Ankush Prasad",
     role: "HR Manager",
     desc: "Builds high-performing teams in the travel domain, specializing in talent acquisition, workforce scaling, and organizational development for travel operations.",
-    img: "src/assets/Ankush_Prasad.png",
+    img: ankushImg,
   },
 ];
 
