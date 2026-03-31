@@ -16,10 +16,11 @@ export default function Contact() {
     reason: "",
     message: "",
   });
-    const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [showPopup, setShowPopup] = useState(false);
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
- const handleSubmit = async (e) => {
+   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("sending");
 
@@ -38,8 +39,9 @@ export default function Contact() {
 
       if (!res.ok) throw new Error("Failed to send");
 
-  setStatus("success");
+      setStatus("success");
       setForm({ name: "", email: "", company: "", reason: "", message: "" });
+      setShowPopup(true);
     
     } catch {
       setStatus("error");
@@ -222,6 +224,30 @@ export default function Contact() {
       >
         <span className="material-symbols-outlined !text-3xl">smart_toy</span>
       </button> */}
+
+      {/* Success Popup */}
+      {showPopup && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+          <div className="bg-white dark:bg-gray-800 rounded-3xl p-10 max-w-md w-full text-center saas-shadow border border-gray-100 dark:border-gray-700 animate-[fadeIn_0.3s_ease-out]">
+            <div className="size-20 mx-auto mb-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+              <span className="material-symbols-outlined text-green-500 !text-4xl">check_circle</span>
+            </div>
+            <h3 className="text-2xl font-black mb-3 text-gray-900 dark:text-white">Message Sent!</h3>
+            <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+              Thank you for reaching out. Our team will get back to you shortly. We typically respond within 24 hours.
+            </p>
+            <button
+              onClick={() => {
+                setShowPopup(false);
+                setStatus("idle");
+              }}
+              className="bg-primary text-white px-8 py-3.5 rounded-xl font-bold hover:scale-105 transition-transform"
+            >
+              Got it!
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
