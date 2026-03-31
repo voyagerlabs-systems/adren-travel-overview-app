@@ -21,6 +21,12 @@ export default function Contact() {
   });
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
   const [showPopup, setShowPopup] = useState(false);
+  const [detectedCountry] = useState(() => {
+    // Get country from browser locale (e.g., "en-US" → "us", "en-IN" → "in")
+    const locale = navigator.language || navigator.userLanguage || "en-IN";
+    const parts = locale.split("-");
+    return parts.length > 1 ? parts[1].toLowerCase() : "in";
+  });
 
    const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
    const handleSubmit = async (e) => {
@@ -105,7 +111,7 @@ export default function Contact() {
               <div>
                 <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Contact Number</label>
                 <PhoneInput
-                  defaultCountry="in"
+                  defaultCountry={detectedCountry}
                   value={form.phone}
                   onChange={(phone) => setForm({ ...form, phone })}
                   inputClassName="!w-full !px-5 !py-3.5 !rounded-xl !bg-gray-50 dark:!bg-gray-900 !border-gray-200 dark:!border-gray-700 focus:!border-primary !outline-none !transition-all !text-sm"
