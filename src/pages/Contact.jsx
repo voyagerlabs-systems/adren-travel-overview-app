@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { PhoneInput } from "react-international-phone";
+import "react-international-phone/style.css";
 
 const offices = [
   { city: "Vadodara", country: "India", icon: "apartment" },
@@ -12,6 +14,7 @@ export default function Contact() {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    phone: "",
     company: "",
     reason: "",
     message: "",
@@ -31,6 +34,7 @@ export default function Contact() {
         body: JSON.stringify({
           name: form.name,
           email: form.email,
+          phone: form.phone,
           company: form.company,
           reason: form.reason,
           message: form.message,
@@ -40,7 +44,7 @@ export default function Contact() {
       if (!res.ok) throw new Error("Failed to send");
 
       setStatus("success");
-      setForm({ name: "", email: "", company: "", reason: "", message: "" });
+      setForm({ name: "", email: "", phone: "", company: "", reason: "", message: "" });
       setShowPopup(true);
     
     } catch {
@@ -97,6 +101,19 @@ export default function Contact() {
                     className="w-full px-5 py-3.5 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
                   />
                 </div>
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Contact Number</label>
+                <PhoneInput
+                  defaultCountry="in"
+                  value={form.phone}
+                  onChange={(phone) => setForm({ ...form, phone })}
+                  inputClassName="!w-full !px-5 !py-3.5 !rounded-xl !bg-gray-50 dark:!bg-gray-900 !border-gray-200 dark:!border-gray-700 focus:!border-primary !outline-none !transition-all !text-sm"
+                  countrySelectorStyleProps={{
+                    buttonClassName: "!px-3 !py-3.5 !rounded-l-xl !bg-gray-50 dark:!bg-gray-900 !border-gray-200 dark:!border-gray-700",
+                  }}
+                  className="!rounded-xl"
+                />
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
