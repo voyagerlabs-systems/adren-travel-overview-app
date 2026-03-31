@@ -13,9 +13,9 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Name, email, and message are required.' });
   }
 
-  // Configure the GoDaddy SMTP Transporter
+  // Configure the Titan Email SMTP Transporter
   const transporter = nodemailer.createTransport({
-    host: "smtpout.secureserver.net",
+    host: "smtp.titan.email",
     port: 465,
     secure: true,
     auth: {
@@ -30,7 +30,11 @@ export default async function handler(req, res) {
   ];
 
   try {
-    await transporter.sendMail({
+    // Debug: log config (remove in production)
+    console.log("SMTP user:", process.env.GODADDY_EMAIL ? "SET" : "MISSING");
+    console.log("SMTP pass:", process.env.GODADDY_PASSWORD ? "SET" : "MISSING");
+
+    const info = await transporter.sendMail({
       from: process.env.GODADDY_EMAIL,
       to: founders.join(", "),
       replyTo: email,
@@ -57,7 +61,10 @@ export default async function handler(req, res) {
         </div>
       `,
     });
-    console.timeLog("Email sent successfully!");
+
+    console.log("Email sent! Response:", info.response);
+    console.log("Message ID:", info.messageId);
+
     return res.status(200).json({ success: "Email sent successfully!" });
   } catch (error) {
     console.error("Email send error:", error);
