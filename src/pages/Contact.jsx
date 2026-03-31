@@ -20,7 +20,7 @@ export default function Contact() {
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
  const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("sending");
+    // setStatus("sending");
 
     try {
       const res = await fetch("/api/send-email", {
