@@ -16,11 +16,12 @@ export default function Contact() {
     reason: "",
     message: "",
   });
+    const [status, setStatus] = useState("idle"); // idle | sending | success | error
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
  const handleSubmit = async (e) => {
     e.preventDefault();
-    // setStatus("sending");
+    setStatus("sending");
 
     try {
       const res = await fetch("/api/send-email", {
@@ -37,8 +38,9 @@ export default function Contact() {
 
       if (!res.ok) throw new Error("Failed to send");
 
-      setStatus("success");
+  setStatus("success");
       setForm({ name: "", email: "", company: "", reason: "", message: "" });
+    
     } catch {
       setStatus("error");
     }
