@@ -48,7 +48,7 @@ export default async function handler(req, res) {
  <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e5e7eb;">
           <!-- Header -->
           <div style="background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7); padding: 32px 32px 24px; text-align: center;">
-            <h1 style="color: #ffffff; font-size: 24px; font-weight: 800; margin: 0 0 8px; letter-spacing: -0.5px;">ADREN</h1>
+            <h1 style="color: #ffffff; font-size: 24px; font-weight: 800; margin: 0 0 8px; letter-spacing: -0.5px;">ADREN TRAVEL</h1>
             <p style="color: rgba(255,255,255,0.85); font-size: 13px; margin: 0; text-transform: uppercase; letter-spacing: 2px;">New Contact Inquiry</p>
           </div>
 
@@ -62,7 +62,7 @@ export default async function handler(req, res) {
           <!-- Body -->
           <div style="padding: 28px 32px;">
             <p style="color: #374151; font-size: 15px; line-height: 1.6; margin: 0 0 24px;">
-              You've received a new inquiry from the ADREN website contact form. Here are the details:
+              You've received a new inquiry from the ADREN TRAVEL website contact form. Here are the details:
             </p>
 
             <!-- Contact Details Card -->
@@ -120,7 +120,7 @@ export default async function handler(req, res) {
           <!-- Footer -->
           <div style="background: #f9fafb; padding: 20px 32px; text-align: center; border-top: 1px solid #e5e7eb;">
             <p style="color: #9ca3af; font-size: 12px; margin: 0;">
-              This email was sent from the <strong>ADREN</strong> website contact form.<br/>
+              This email was sent from the <strong>ADREN TRAVEL</strong> website contact form.<br/>
               &copy; ${new Date().getFullYear()} Adren Travel. All rights reserved.
             </p>
           </div>
