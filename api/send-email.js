@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, company, reason, message } = req.body;
+  const { name, email, company, reason, message, phone } = req.body;
 
   // Validate required fields
   if (!name || !email || !message) {
@@ -39,6 +39,7 @@ export default async function handler(req, res) {
       text: [
         `Name: ${name}`,
         `Email: ${email}`,
+        `Phone: ${phone || "N/A"}`,
         `Company: ${company || "N/A"}`,
         `Reason: ${reason || "N/A"}`,
         `Message:\n${message}`,
@@ -77,6 +78,12 @@ export default async function handler(req, res) {
                   <td style="padding: 10px 0; border-bottom: 1px solid #e5e7eb; vertical-align: top;">
                     <span style="color: #9ca3af; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Email Address</span><br/>
                     <a href="mailto:${email}" style="color: #6366f1; font-size: 15px; font-weight: 600; text-decoration: none;">${email}</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 0; border-bottom: 1px solid #e5e7eb; vertical-align: top;">
+                    <span style="color: #9ca3af; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Phone</span><br/>
+                    <a href="tel:${phone}" style="color: #6366f1; font-size: 15px; font-weight: 600; text-decoration: none;">${phone || "Not provided"}</a>
                   </td>
                 </tr>
                 <tr>
@@ -121,7 +128,7 @@ export default async function handler(req, res) {
       `,
     });
 
-    console.warn("Message ID:", info.messageId);
+    console.warn("[Success] Message ID:", info.messageId);
 
     return res.status(200).json({ success: "Email sent successfully!" });
   } catch (error) {
