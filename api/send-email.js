@@ -57,7 +57,7 @@ export default async function handler(req, res) {
         </div>
       `,
     });
-
+    console.timeLog("Email sent successfully!");
     return res.status(200).json({ success: "Email sent successfully!" });
   } catch (error) {
     console.error("Email send error:", error);
