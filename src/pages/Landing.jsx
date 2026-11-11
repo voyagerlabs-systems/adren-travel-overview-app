@@ -226,7 +226,7 @@ export default function Landing() {
                 "At ADREN, we believe travel technology shouldn't just be functional—it should be intelligent. We're building the future where AI handles the logistics, so humans can focus on the adventure."
               </p>
               <div>
-                <h4 className="text-xl font-extrabold">Ankit Prasad</h4>
+                <h4 className="text-xl font-extrabold">Sarita Prasad</h4>
                 <p className="text-gray-500 font-bold text-sm">Founder &amp; CEO, ADREN Travel</p>
               </div>
             </div>
