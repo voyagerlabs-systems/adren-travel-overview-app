@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ankitFounderImg from "../assets/Ankit_Prasad_Founder.jpeg";
+import ankitFounderImg from "../assets/Sarita.jpeg";
 
 export default function Landing() {
   return (
@@ -217,7 +217,7 @@ export default function Landing() {
               <img
                 className="w-full h-full object-cover"
                 src={ankitFounderImg}
-                alt="Ankit Prasad, Founder & CEO"
+                alt="Sarita Prasad, CEO"
               />
             </div>
             <div>
