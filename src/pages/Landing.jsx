@@ -227,7 +227,7 @@ export default function Landing() {
               </p>
               <div>
                 <h4 className="text-xl font-extrabold">Sarita Prasad</h4>
-                <p className="text-gray-500 font-bold text-sm">Founder &amp; CEO, ADREN Travel</p>
+                <p className="text-gray-500 font-bold text-sm">CEO, ADREN Travel</p>
               </div>
             </div>
           </div>
